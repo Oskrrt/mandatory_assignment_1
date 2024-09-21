@@ -130,4 +130,4 @@ def test_checking_account():
     print(checking_account.account_info())
 
 #Run tests
-#test_bank_system()
+test_bank_system()
