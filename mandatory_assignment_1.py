@@ -19,10 +19,6 @@ def find_prime_factors_original(n, prime_factors=[]):
 def is_edge_case(number):
     return number <= 1
 
-### used to check if n is lower than i*i to use when n is a small number: <9
-def is_lower_than_divisor_squared(n, i):
-    return n < i * i
-
 def find_prime_factors(n, prime_factors=None):
     print("Printing results of the optimized algorithm:")
     if prime_factors is None:
@@ -30,12 +26,11 @@ def find_prime_factors(n, prime_factors=None):
 
     if is_edge_case(n):
         return prime_factors
-    i = 3
-    addend = 2
-    if is_lower_than_divisor_squared(n, i):
-        i = 2
-        addend = 1
+    i = 2
+    addend = 1
     while i * i <= n:
+        if i == 3:
+            addend = 2
         if n % i == 0:
             prime_factors.append(i)
             n //= i
